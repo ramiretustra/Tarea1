@@ -24,10 +24,11 @@ function validarForm(formulario) {
     <body>
         <form method="post" action="checkagregarprimeraventa.jsp" onsubmit="return validarForm(this);">
             <pre>
+                
                 Cliente: <%
                     String driver = "oracle.jdbc.OracleDriver";
                     String url = "jdbc:oracle:thin:@localhost:1521:XE";
-                    String username = "machi";
+                    String username = "machi2";
                     String password = "12345";
                     Class.forName(driver);
                     Connection conn = DriverManager.getConnection(url,username,password);
@@ -64,10 +65,21 @@ function validarForm(formulario) {
                 %>
                 Fecha: <input type="text" name="fecha">
                 Hora: <input type="text" name="hora">
-                Cantidad: <input type="text" name="cantidad">                           
+                Cantidad: <input type="text" name="cantidad">    
+                 <%
+            
+            
+             HttpSession sesion=request.getSession();
+             
+             String nombre = (String)sesion.getAttribute("nombre");
+             String tipo = (String)sesion.getAttribute("tipo");
+             out.println("Nombre:"+nombre+" Tipo:"+tipo);
+            %>
             </pre>
             <input type="submit" value="Agregar">
+            
         </form>
+            <a href="iniciovendedor.jsp"><input type="submit" value="Cancelar"></a>
         
         
     </body>

@@ -13,7 +13,7 @@
                 Producto:<%
                     String driver = "oracle.jdbc.OracleDriver";
                     String url = "jdbc:oracle:thin:@localhost:1521:XE";
-                    String username = "machi";
+                    String username = "machi2";
                     String password = "12345";
                     Class.forName(driver);
                     Connection conn = DriverManager.getConnection(url,username,password);
@@ -33,6 +33,17 @@
             </pre>
             <input type="submit" value="Aceptar"> 
        </form>
+            <%
+            
+            
+             HttpSession sesion=request.getSession();
+             
+             String nombre = (String)sesion.getAttribute("nombre");
+             String tipo = (String)sesion.getAttribute("tipo");
+             out.println("Nombre:"+nombre+" Tipo:"+tipo);
+            %>
+                        <br><a href="inicioadmin.jsp"><input type="submit" value="Salir"></a>
+
              
     </body>
 </html>

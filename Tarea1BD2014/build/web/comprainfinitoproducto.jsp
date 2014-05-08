@@ -28,7 +28,7 @@ function validarForm(formulario) {
                 Producto: <%
                     String driver = "oracle.jdbc.OracleDriver";
                     String url = "jdbc:oracle:thin:@localhost:1521:XE";
-                    String username = "machi";
+                    String username = "machi2";
                     String password = "12345";
                     Class.forName(driver);
                     Connection conn = DriverManager.getConnection(url,username,password);

@@ -16,7 +16,6 @@
             </pre>
             <input type="submit" value="login">
         </form>
-        <a href="visita.jsp"><input type="submit" value="Visita"></a>
 
     </body>
 </html>

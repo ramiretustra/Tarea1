@@ -1,4 +1,8 @@
 
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <script type="text/javascript">
 function validarForm(formulario) {
@@ -25,6 +29,21 @@ function validarForm(formulario) {
         <title>JSP Page</title>
     </head>
     <body>
+        <%
+            String driver = "oracle.jdbc.OracleDriver";
+            String url = "jdbc:oracle:thin:@localhost:1521:XE";
+            String username = "machi2";
+            String password = "12345";
+            Class.forName(driver);
+            Connection conn = DriverManager.getConnection(url,username,password);
+            Statement stm = conn.createStatement();
+            
+             HttpSession sesion=request.getSession();
+             
+             String nombre = (String)sesion.getAttribute("nombre");
+             String tipo = (String)sesion.getAttribute("tipo");
+             out.println("Nombre:"+nombre+" Tipo:"+tipo);
+            %>
         <form method="post" action="checkingresocliente.jsp" onsubmit="return validarForm(this);">
             <pre>
                 Nombre: <input type="text" name="nombre">
@@ -33,6 +52,7 @@ function validarForm(formulario) {
             </pre>
             <input type="submit" value="Ingresar">
         </form>
+        <a href="iniciovendedor.jsp"><input type="submit" value="Cancelar"></a>
         
     </body>
 </html>
